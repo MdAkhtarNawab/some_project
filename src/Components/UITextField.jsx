@@ -1,11 +1,32 @@
-import { TextField } from '@mui/material'
-import React from 'react'
+import { Box, TextField } from "@mui/material";
+import React from "react";
 
-const UITextField = () => {
-    
+const UITextField = ({
+  fullWidth = false,
+  label = "",
+  name = "",
+  value = null,
+  type = "text",
+  onChange = new Function(),
+  error = null,
+  helperText=''
+}) => {
   return (
-    <TextField label="Outlined" variant='outlined' />
-  )
-}
+    <Box sx={{ margin: "1vw" }}>
+      <TextField
+        fullWidth={fullWidth}
+        label={label}
+        name={name}
+        variant="outlined"
+        onChange={onChange}
+        value={value}
+        type={type}
+        id={name}
+        error={error}
+        helperText={helperText}
+      />
+    </Box>
+  );
+};
 
-export default UITextField
+export default UITextField;

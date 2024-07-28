@@ -1,12 +1,14 @@
-import { Button } from '@mui/material'
-import React from 'react'
+import { Box, Button } from "@mui/material";
+import React from "react";
 
-const UIButton = () => {
+const UIButton = ({ fullWidth = false, text = "" , type='button'}) => {
   return (
-    <Button variant='contained' >
-        Click here
-    </Button>
-  )
-}
+    <Box sx={{ margin: "1vw" }}>
+      <Button type={type} variant="contained" fullWidth={fullWidth}>
+        {text}
+      </Button>
+    </Box>
+  );
+};
 
-export default UIButton
+export default UIButton;
