@@ -2,23 +2,18 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import UITextField from "../Components/UITextField";
 import UIButton from "../Components/UIButton";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const {
-    control,
-    formState: { errors, isDirty },
-    handleSubmit,
-  } = useForm({
-    defaultValues: {
-      userId: "",
-      password: "",
-    },
-  });
-
+  const { control, handleSubmit } = useForm();
   return (
     <Box
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "80vh",
+      }}
     >
       <form
         onSubmit={handleSubmit((data) => {
@@ -29,34 +24,20 @@ const Login = () => {
           sx={{ border: "1px solid", width: "40vw", padding: "1vw 5vw 3vw" }}
         >
           <Typography>Login</Typography>
-          <Controller
-            name="userId"
+          <UITextField
             control={control}
             rules={{ required: "User ID is required" }}
-            render={({ field }) => (
-              <UITextField
-                {...field}
-                fullWidth
-                label="User ID"
-                error={errors?.userId}
-                helperText={errors?.userId?.message}
-              />
-            )}
+            name="userId"
+            fullWidth
+            label="User ID"
           />
-          <Controller
+          <UITextField
+            fullWidth
+            label="Password"
+            type="password"
             name="password"
             control={control}
             rules={{ required: "Password is required" }}
-            render={({ field }) => (
-              <UITextField
-                {...field}
-                fullWidth
-                label="Password"
-                type="password"
-                error={errors?.password}
-                helperText={errors?.password?.message}
-              />
-            )}
           />
           <UIButton type="submit" fullWidth text="Login" />
         </Box>

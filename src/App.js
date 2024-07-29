@@ -2,13 +2,13 @@
 import { Suspense } from "react";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
-import RoutesContainer from "./Routes/RoutesContainer";
+import ThemedWrapper from "./Theme/ThemedWrapper";
 
 function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
-        <RoutesContainer />
+        <ThemedWrapper />
       </Suspense>
     </BrowserRouter>
   );

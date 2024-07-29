@@ -1,4 +1,4 @@
-import { SET_USER_LOGGED_IN } from "./ReduxConstants";
+import { SET_USER_LOGGED_IN } from "../ReduxConstants";
 
 const initialState = {
   isUserLoggedIn: {},
